@@ -1,0 +1,27 @@
+info:
+  name: 5.Crear_Telefonos
+  type: http
+  seq: 5
+
+http:
+  method: POST
+  url: "{{baseUrl}}/api/telefonos"
+  body:
+    type: json
+    data: |-
+      {
+        "modelo": "iPhone 16 Pro",
+        "precio": 25999.00,
+        "almacenamientoGb": 256,
+        "marcaId": 1
+      }
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

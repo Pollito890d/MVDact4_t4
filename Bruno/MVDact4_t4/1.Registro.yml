@@ -1,0 +1,32 @@
+info:
+  name: 1.Registro
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{baseUrl}}/api/auth/register"
+  body:
+    type: json
+    data: |-
+      {
+        "nombre": "Dante Martinez",
+        "email": "23161009@itoaxaca.edu.mx",
+        "password": "Fort14nite."
+      }
+  auth: inherit
+
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        if (res.body && res.body.token) {
+          bru.setEnvVar("token", res.body.token);
+        }
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

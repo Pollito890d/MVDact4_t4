@@ -1,0 +1,27 @@
+info:
+  name: 6.Actualizar_Telefono
+  type: http
+  seq: 6
+
+http:
+  method: PUT
+  url: "{{baseUrl}}/api/telefonos/1"
+  body:
+    type: json
+    data: |-
+      {
+        "modelo": "iPhone 16 Pro Max",
+        "precio": 28999.00,
+        "almacenamientoGb": 512,
+        "marcaId": 1
+      }
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

@@ -1,0 +1,6 @@
+name: vps
+variables:
+  - name: baseUrl
+    value: http://143.198.182.173:8086
+  - secret: true
+    name: token
